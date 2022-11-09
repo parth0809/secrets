@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<% if((userrole==="admin")){ %>
+<div class="container mt-5">
+  <h1>Upgrade</h1>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /login route -->
+          <form action="/upgrade" method="POST">
+            <div class="form-group">
+              <label for="ID">Enter DB ID</label>
+              <input type="text" class="form-control" name="ID" required="required">
+            </div>
+            <div class="form-group">
+                <label for="Role">Choose Roles:</label>
+                <select name="Roles" id="Role"  required="required">
+                  <option value="admin">admin</option>
+                  <option value="devloper">developer</option>
+                  <option value="User">user</option>
+                </select>
+                <br><br>
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<% } else{%>
+  <h1>Unauthorized</h1>
+  <% }%>
+<%- include('partials/footer') %>
